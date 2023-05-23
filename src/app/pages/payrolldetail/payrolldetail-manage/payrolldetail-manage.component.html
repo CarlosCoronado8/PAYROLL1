@@ -1,0 +1,70 @@
+<form (ngSubmit)="PayrollDetailSave()" [formGroup]="form">
+    <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+        <h2 class="headline m-0 text-xl text-accent" fxFlex="auto">
+            <strong>Gestion de Detalle de nómina</strong>
+        </h2>
+        <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+            <mat-icon [icIcon]="icClose"></mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>ID detail</mat-label>
+                <input matInput formControlName="DetailId">
+                <mat-error *ngIf="form.get('DetailId').hasError('required')">
+                  ID Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Payroll Id</mat-label>
+                <input matInput formControlName="PayrollId">
+                <mat-error *ngIf="form.get('PayrollId').hasError('required')">
+                    PayrollId Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Concept Id</mat-label>
+                <input matInput formControlName="ConceptId">
+                <mat-error *ngIf="form.get('ConceptId').hasError('required')">
+                    ConceptId Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Concept Type</mat-label>
+                <input matInput formControlName="ConceptType">
+                <mat-error *ngIf="form.get('ConceptType').hasError('required')">
+                    ConceptType Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Amount</mat-label>
+                <input matInput formControlName="Amount">
+                <mat-error *ngIf="form.get('Amount').hasError('required')">
+                    Amount Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close type="button"> CANCELAR </button>
+        <button color="purple" class="bg-accent text-accent-contrast" mat-button type="submit" [disabled]="!form.valid">
+            GUARDAR
+        </button>
+    </mat-dialog-actions>
+</form>

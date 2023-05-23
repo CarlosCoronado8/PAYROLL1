@@ -1,0 +1,99 @@
+<form (ngSubmit)="EmployeeSave()" [formGroup]="form">
+    <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+        <h2 class="headline m-0 text-xl text-accent" fxFlex="auto">
+            <strong>Gestion de Empleado</strong>
+        </h2>
+        <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+            <mat-icon [icIcon]="icClose"></mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>ID Empleado</mat-label>
+                <input matInput formControlName="employeeId"> 
+                    <mat-error *ngIf="form.get('employeeId').hasError('required')">
+                  ID Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName">
+                <mat-error *ngIf="form.get('firstName').hasError('required')">
+                    FirstName Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName">
+                <mat-error *ngIf="form.get('lastName').hasError('required')">
+                    LastName Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Date Of Birth</mat-label>
+                <input matInput formControlName="dateOfBirth">
+                <mat-error *ngIf="form.get('dateOfBirth').hasError('required')">
+                    DateOfBirth Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Hire Date</mat-label>
+                <input matInput formControlName="hireDate">
+                <mat-error *ngIf="form.get('hireDate').hasError('required')">
+                    HireDate Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Base Salary</mat-label>
+                <input matInput formControlName="baseSalary">
+                <mat-error *ngIf="form.get('baseSalary').hasError('required')">
+                    BaseSalary Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Id Department</mat-label>
+                <input matInput formControlName="departmentId">
+                <mat-error *ngIf="form.get('departmentId').hasError('required')">
+                    DepartmentId Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Id Position</mat-label>
+                <input matInput formControlName="positionId">
+                <mat-error *ngIf="form.get('positionId').hasError('required')">
+                    PositionId Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close type="button"> CANCELAR </button>
+        <button color="purple" class="bg-accent text-accent-contrast" mat-button type="submit" [disabled]="!form.valid">
+            GUARDAR
+        </button>
+    </mat-dialog-actions>
+</form>

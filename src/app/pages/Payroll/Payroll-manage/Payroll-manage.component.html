@@ -1,0 +1,90 @@
+<form (ngSubmit)="PayrollSave()" [formGroup]="form">
+    <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+        <h2 class="headline m-0 text-xl text-accent" fxFlex="auto">
+            <strong>Gestion de Payroll</strong>
+        </h2>
+        <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+            <mat-icon [icIcon]="icClose"></mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>ID Payroll</mat-label>
+                <input matInput formControlName="PayrollId">
+                <mat-error *ngIf="form.get('PayrollId').hasError('required')">
+                  ID Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>EmployeeId</mat-label>
+                <input matInput formControlName="employeeId">
+                <mat-error *ngIf="form.get('employeeId').hasError('required')">
+                    employeeId Requerido 
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>PeriodStart</mat-label>
+                <input matInput formControlName="periodStart">
+                <mat-error *ngIf="form.get('periodStart').hasError('required')">
+                    periodStart Requerido 
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>PeriodEnd</mat-label>
+                <input matInput formControlName="periodEnd">
+                <mat-error *ngIf="form.get('periodEnd').hasError('required')">
+                    periodEnd Requerido 
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>TotalEarned</mat-label>
+                <input matInput formControlName="totalEarned">
+                <mat-error *ngIf="form.get('totalEarned').hasError('required')">
+                    totalEarned Requerido 
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>TotalDeducted</mat-label>
+                <input matInput formControlName="totalDeducted">
+                <mat-error *ngIf="form.get('totalDeducted').hasError('required')">
+                    totalDeducted Requerido 
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>TotalToPay</mat-label>
+                <input matInput formControlName="totalToPay">
+                <mat-error *ngIf="form.get('totalToPay').hasError('required')">
+                    totalToPay Requerido 
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close type="button"> CANCELAR </button>
+        <button color="purple" class="bg-accent text-accent-contrast" mat-button type="submit" [disabled]="!form.valid">
+            GUARDAR
+        </button>
+    </mat-dialog-actions>
+</form>
